@@ -37,3 +37,7 @@
     transform: translateY(0px);
   }
 }
+
+body {
+  background-image: linear-gradient(#FF00E5, #F2FF5B);
+}
