@@ -4,7 +4,8 @@ function Login() {
 
 
     return (
-        <div> 
+        <div>
+            <p className="lolxd">Lolxd</p> 
             <div>
                 <h1>Lost in Translation</h1>
                 <h3>Get Started</h3>
