@@ -12,7 +12,7 @@ function Input() {
             placeholder="What's your name?" 
             value={username} onChange={handleUsername}/>
         <div className="input-group-append">
-            <button className="btn btn-primary" type="button">{ "->" }</button>
+            <button className="btn btn-primary" type="button">Go</button>
         </div>
     </div>
     )
