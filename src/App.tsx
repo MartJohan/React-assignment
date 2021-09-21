@@ -1,3 +1,7 @@
+import {  
+  BrowserRouter as Router,
+  Switch,
+  Route} from 'react-router-dom';
 import './App.css'
 import Login from './components/Login';
 
@@ -5,10 +9,16 @@ function App() {
 
 
   return (
-    <div className="App">
-      <p className="lolxd">Lolxd</p>
-      <Login />
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/login">
+            <p className="lolxd">Lolxd</p>
+            <Login />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
