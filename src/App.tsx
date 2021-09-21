@@ -12,6 +12,7 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
+          <Route path="/" exact component={Login}/>
           <Route path="/login">
             <p className="lolxd">Lolxd</p>
             <Login />
