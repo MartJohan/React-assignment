@@ -1,5 +1,5 @@
 import {useState} from 'react';
-function Input() {
+function LoginInput() {
     const [username, setUsername] = useState("")
     
     const handleUsername = (event: React.FormEvent<HTMLInputElement>) => {
@@ -12,10 +12,10 @@ function Input() {
             placeholder="What's your name?" 
             value={username} onChange={handleUsername}/>
         <div className="input-group-append">
-            <button className="btn btn-primary" type="button">Go</button>
+            <button className="btn btn-outline-secondary" type="button">Go</button>
         </div>
     </div>
     )
 }
 
-export default Input;
+export default LoginInput;
