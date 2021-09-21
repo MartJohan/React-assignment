@@ -1,21 +1,13 @@
 import {useState} from 'react';
-import Input from './LoginInput';
+import TranslationInput from './TranslationInput';
 import Sign from './Sign';
 
 function Translation() {
     // list of chars to be translated
     const [signs, setSigns] = useState([""])
-    
-    // CHANGE TO USE CONTEXT FROM THE INPUT COMPONENT WHEN WE IMPLEMENT CONTEXT API!!
-    // (for now we duplicate state here in parent component)
-    const [inputText, setInputText] = useState("");
 
-    const setText = (text: string) => {
-        setInputText(text);
-    }
-
-    const handleInputTextChange = () => {
-        const translation: string[] = setSignsFromString(inputText)
+    const handleInputTextChange = (inputFromChild: string) => {
+        const translation: string[] = setSignsFromString(inputFromChild)
         setSigns(translation);
     }
 
@@ -24,18 +16,18 @@ function Translation() {
         return translationArray;
 
     }
+
     // need inputText from Input component
     return (
-        <div>
-            <Input setText={setText} inputChange={handleInputTextChange}/>
-            <div className="row">
-                <Sign letter="a" />
-                <Sign letter="b" />
-                <Sign letter="c" />
+        <div className="container">
+            <TranslationInput inputClick={handleInputTextChange}/>
+            <div className="translation rounded">
+                <ul className="row">
+                    {signs.map((element, index) => {
+                        return <Sign letter={element} key={index}/>
+                    })}
+                </ul>
             </div>
-            {/*signs.forEach(element => {
-                <Sign letter={element}/>
-            })*/}
         </div>
     )
 }
