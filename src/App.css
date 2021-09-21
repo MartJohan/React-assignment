@@ -44,9 +44,18 @@ body {
   height: 100vh;
 }
 
+.translation {
+  background-image: linear-gradient(#FF00E5, #F2FF5B);
+}
+
 .lolxd {
   font-size: 8cm;
   background: -webkit-linear-gradient(#850077, #41da05);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.emptySpace {
+  width: 80px;
+  display: inline-block
 }
