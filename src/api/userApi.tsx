@@ -12,8 +12,7 @@ export async function GetUsers() {
     }
 }
 
-
-export async function CheckUser(user : string) {
+export async function GetUser(user : string) {
     try {
         const userfromDB = await fetch(`${url}?username=${user}`)
         .then(response => response.json());

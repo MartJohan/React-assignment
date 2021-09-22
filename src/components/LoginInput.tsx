@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { CheckUser, PostUser } from '../api/userApi';
+import { useHistory } from 'react-router';
+import { GetUser, PostUser } from '../api/userApi';
 function LoginInput() {
     const [username, setUsername] = useState("");
     const [user, setUser] = useState({
@@ -7,13 +8,14 @@ function LoginInput() {
         username : '',
         translations : []
     }); 
+    const history = useHistory();
     
     const handleUsername = (event: React.FormEvent<HTMLInputElement>) => {
         setUsername(event.currentTarget.value)
     }
 
     async function checkUser() {
-        const userFromDB = await CheckUser(username);
+        const userFromDB = await GetUser(username);
         if(userFromDB !== null) {
             setUser({
                 ...user,
@@ -22,14 +24,16 @@ function LoginInput() {
                 translations : userFromDB.translations
             });
         } else {
-            const newUser = await PostUser(username);
+            const newUser = await PostUser(username);   
             setUser({
                 ...user,
                 id : newUser.id,
                 username : newUser.username,
                 translations : []
             });
+            
         }
+        history.push("/translation");
     }
 
     return (

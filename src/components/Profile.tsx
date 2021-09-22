@@ -1,6 +1,8 @@
+import ProfileTranslation from "./ProfileTranslation";
+
 function Profile() {
     return (
-        <div></div>
+        <ProfileTranslation />
     )
 }
 
