@@ -1,8 +1,6 @@
 import Input from './Input';
 
 function Login() {
-
-
     return (
         <div> 
             <div>
