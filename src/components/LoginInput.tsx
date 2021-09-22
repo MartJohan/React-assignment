@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { CheckUser, PostUser } from '../api/userApi';
-function Input() {
+function LoginInput() {
     const [username, setUsername] = useState("");
     const [user, setUser] = useState({
         id : 0,
@@ -45,4 +45,4 @@ function Input() {
     )
 }
 
-export default Input;
+export default LoginInput;

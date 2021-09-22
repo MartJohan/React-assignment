@@ -1,7 +1,11 @@
-import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./App.css";
-import Login from "./components/Login";
+import { useState, useEffect } from 'react';
+import {  
+  BrowserRouter as Router,
+  Switch,
+  Route} from 'react-router-dom';
+import './App.css'
+import Login from './components/Login';
+import Translation from './components/Translation';
 
 function App() {
   const [LoggedIn, setLoggedIn] = useState("0");
@@ -30,11 +34,9 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/" exact component={Login} />
-          <Route path="/login">
-            <p className="lolxd">Lolxd</p>
-            <Login />
-          </Route>
+          <Route path="/" exact component={Login}/>
+          <Route path="/login" component={Login}/>
+          <Route path="/translation" component={Translation}/>
         </Switch>
       </div>
     </Router>
