@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import {  
   BrowserRouter as Router,
   Switch,
@@ -7,7 +8,27 @@ import Login from './components/Login';
 import Translation from './components/Translation';
 
 function App() {
+  const [LoggedIn, setLoggedIn] = useState("0");
 
+  useEffect(() => {
+    checkLoggedIn();
+  }, []);
+
+  const checkLoggedIn = () => {
+    let value = localStorage.getItem("LoggedIn");
+    if (value) {
+      if (value === "1") {
+        setLoggedIn("1");
+        console.log(LoggedIn);
+      } else {
+        setLoggedIn("0");
+        console.log(LoggedIn);
+      }
+    } else {
+      localStorage.setItem("LoggedIn", "0");  
+      console.log(LoggedIn);
+    }
+  };
 
   return (
     <Router>

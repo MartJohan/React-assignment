@@ -1,8 +1,6 @@
 import Input from './LoginInput';
 
 function Login() {
-
-
     return (
         <div>
             <p className="lolxd">Lolxd</p> 
