@@ -2,8 +2,9 @@ import {useState,useEffect } from 'react';
 import TranslationInput from './TranslationInput';
 import Sign from './Sign';
 import { useHistory } from 'react-router';
+import { useUser, UserContextType } from '../context/UserContext';
 
-//import { useTranslation } from '../context/TranslationContext';
+
 
 function Translation() {
     const history = useHistory();
@@ -16,12 +17,15 @@ function Translation() {
 
     // list of chars to be translated
     const [signs, setSigns] = useState([""])
-//    const [translation, setTranslation] = useTranslation([]);
+    const user: UserContextType = useUser();
 
 
     const handleInputTextChange = (inputFromChild: string) => {
         const translation: string[] = setSignsFromString(inputFromChild)
         setSigns(translation);
+        const userTranslationsArray = user.translations;
+        userTranslationsArray.push(inputFromChild)
+        user.setTranslations(userTranslationsArray)
     }
 
     const setSignsFromString = (translation: string) => {
