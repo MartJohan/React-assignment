@@ -1,37 +1,25 @@
-import { useState } from 'react';
 import { useHistory } from 'react-router';
-import { GetUser, PostUser } from '../api/userApi';
-function LoginInput() {
-    const [username, setUsername] = useState("");
-    const [user, setUser] = useState({
-        id : 0,
-        username : '',
-        translations : []
-    }); 
-    const history = useHistory();
     
+import { GetUser, PostUser } from '../api/userApi';
+import { useUser, UserContextType } from '../context/UserContext';
+function LoginInput() {
+    const user: UserContextType = useUser();
+    const history = useHistory();
     const handleUsername = (event: React.FormEvent<HTMLInputElement>) => {
-        setUsername(event.currentTarget.value)
+        user.setUsername(event.currentTarget.value)
     }
 
     async function checkUser() {
-        const userFromDB = await GetUser(username);
+        const userFromDB = await GetUser(user.username);
         if(userFromDB !== null) {
-            setUser({
-                ...user,
-                id : userFromDB.id,
-                username : userFromDB.username,
-                translations : userFromDB.translations
-            });
+            user.setUsername(userFromDB.username)
+            user.setId(userFromDB.id)
+            user.setTranslations(userFromDB.translations)
         } else {
-            const newUser = await PostUser(username);   
-            setUser({
-                ...user,
-                id : newUser.id,
-                username : newUser.username,
-                translations : []
-            });
-            
+            const newUser: UserContextType = await PostUser(user.username);
+            user.setUsername(newUser.username)
+            user.setId(newUser.id)
+            user.setTranslations(newUser.translations)
         }
         history.push("/translation");
     }
@@ -41,7 +29,7 @@ function LoginInput() {
         <input type="text" className="form-control" 
             aria-label="" aria-describedby="basic-addon" 
             placeholder="What's your name?" 
-            value={username} onChange={ handleUsername }/>
+            value={user.username} onChange={ handleUsername }/>
         <div className="input-group-append">
             <button className="btn btn-primary" type="button" onClick={ checkUser }>Go</button>
         </div>

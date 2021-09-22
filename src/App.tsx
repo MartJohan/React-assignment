@@ -22,9 +22,16 @@ function App() {
     } else {
       localStorage.setItem("LoggedIn", "0");  
     }
+<<<<<<< HEAD
   }, [LoggedIn]);
 
     
+=======
+
+  }, [LoggedIn]);
+
+
+>>>>>>> c293f81c3801e6ded49f210de7a948babc54b94e
 
   return (
     <Router>
