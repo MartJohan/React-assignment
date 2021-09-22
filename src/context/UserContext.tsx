@@ -1,10 +1,21 @@
 import { createContext, useState, useContext } from "react";
 
-const UserContext = createContext<UserContextType>({user: "", setUser: user => null});
+const UserContext = createContext<UserContextType>({
+    username: "", 
+    setUsername: username => null,
+    id: 0, 
+    setId: id => null,
+    translations: [],
+    setTranslations: translations => null
+});
 
-type UserContextType = {
-    user: string,
-    setUser: (user: string) => void
+export type UserContextType = {
+    username: string,
+    setUsername: (user: string) => void,
+    id: number,
+    setId: (id: number) => void,
+    translations: string[],
+    setTranslations: (translations: string[]) => void
 }
 
 export const useUser = () => {
@@ -13,10 +24,12 @@ export const useUser = () => {
 
 const UserProvider = ({ children }: any) => {
 
-    const [user, setUser] = useState("");
+    const [username, setUsername] = useState("");
+    const [id, setId] = useState(0);
+    const [translations, setTranslations] = useState([""])
     
     return(
-        <UserContext.Provider value={{user, setUser}}>
+        <UserContext.Provider value={{username, setUsername, id, setId, translations, setTranslations}}>
             {children}
         </UserContext.Provider>
     )

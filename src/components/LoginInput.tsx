@@ -1,34 +1,23 @@
-import { useState } from 'react';
 import { CheckUser, PostUser } from '../api/userApi';
+import { useUser, UserContextType } from '../context/UserContext';
 function LoginInput() {
-    const [username, setUsername] = useState("");
-    const [user, setUser] = useState({
-        id : 0,
-        username : '',
-        translations : []
-    }); 
+    const user: UserContextType = useUser();
     
     const handleUsername = (event: React.FormEvent<HTMLInputElement>) => {
-        setUsername(event.currentTarget.value)
+        user.setUsername(event.currentTarget.value)
     }
 
     async function checkUser() {
-        const userFromDB = await CheckUser(username);
+        const userFromDB = await CheckUser(user.username);
         if(userFromDB !== null) {
-            setUser({
-                ...user,
-                id : userFromDB.id,
-                username : userFromDB.username,
-                translations : userFromDB.translations
-            });
+            user.setUsername(userFromDB.username)
+            user.setId(userFromDB.id)
+            user.setTranslations(userFromDB.translations)
         } else {
-            const newUser = await PostUser(username);
-            setUser({
-                ...user,
-                id : newUser.id,
-                username : newUser.username,
-                translations : []
-            });
+            const newUser: UserContextType = await PostUser(user.username);
+            user.setUsername(newUser.username)
+            user.setId(newUser.id)
+            user.setTranslations(newUser.translations)
         }
     }
 
@@ -37,7 +26,7 @@ function LoginInput() {
         <input type="text" className="form-control" 
             aria-label="" aria-describedby="basic-addon" 
             placeholder="What's your name?" 
-            value={username} onChange={ handleUsername }/>
+            value={user.username} onChange={ handleUsername }/>
         <div className="input-group-append">
             <button className="btn btn-primary" type="button" onClick={ checkUser }>Go</button>
         </div>

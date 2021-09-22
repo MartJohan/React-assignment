@@ -2,7 +2,7 @@ import {useState} from 'react';
 import TranslationInput from './TranslationInput';
 import Sign from './Sign';
 
-import { useTranslation } from '../context/TranslationContext';
+//import { useTranslation } from '../context/TranslationContext';
 
 function Translation() {
     // list of chars to be translated
