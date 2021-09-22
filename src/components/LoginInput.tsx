@@ -1,22 +1,25 @@
+import { useState } from 'react';
 import { useHistory } from 'react-router';
-    
 import { GetUser, PostUser } from '../api/userApi';
 import { useUser, UserContextType } from '../context/UserContext';
 function LoginInput() {
     const user: UserContextType = useUser();
+    const [inputText, setInputText] = useState("")
     const history = useHistory();
     const handleUsername = (event: React.FormEvent<HTMLInputElement>) => {
-        user.setUsername(event.currentTarget.value)
+        setInputText(event.currentTarget.value);
     }
 
-    async function checkUser() {
-        const userFromDB = await GetUser(user.username);
+    async function checkUser(event: any) {
+        event.preventDefault();
+        console.log(inputText)
+        const userFromDB = await GetUser(inputText);
         if(userFromDB !== null) {
             user.setUsername(userFromDB.username)
             user.setId(userFromDB.id)
             user.setTranslations(userFromDB.translations)
         } else {
-            const newUser: UserContextType = await PostUser(user.username);
+            const newUser: UserContextType = await PostUser(inputText);
             user.setUsername(newUser.username)
             user.setId(newUser.id)
             user.setTranslations(newUser.translations)
@@ -25,15 +28,19 @@ function LoginInput() {
     }
 
     return (
-    <div className="input-group mb-3 w-100">
-        <input type="text" className="form-control" 
-            aria-label="" aria-describedby="basic-addon" 
-            placeholder="What's your name?" 
-            value={user.username} onChange={ handleUsername }/>
-        <div className="input-group-append">
-            <button className="btn btn-primary" type="button" onClick={ checkUser }>Go</button>
+        <div>
+            <form onSubmit={checkUser}>
+                <div className="input-group mb-3 w-100">
+                    <input type="text" id="usernameInput" className="form-control" 
+                        aria-label="" aria-describedby="basic-addon" 
+                        placeholder="What's your name?"
+                        value={inputText} onChange={handleUsername}/>
+                    <div className="input-group-append">
+                        <button className="btn btn-outline-secondary" type="submit" >Go</button>
+                    </div>
+                </div>
+            </form>
         </div>
-    </div>
     )
 }
 

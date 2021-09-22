@@ -9,6 +9,7 @@ function TranslationInput(props: any) {
     const handleTranslate = (event: any) => {
         event.preventDefault();
         props.inputClick(inputText);
+        setInputText("");
     }
 
 
