@@ -6,7 +6,6 @@ import { useUser, UserContextType } from '../context/UserContext';
 import { useLoggedIn, LoggedInContextType} from '../context/LoggedInContext';
 
 
-
 function Translation() {
     const [signs, setSigns] = useState([""])
     const user: UserContextType = useUser();
