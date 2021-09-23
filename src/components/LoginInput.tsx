@@ -14,7 +14,6 @@ function LoginInput() {
 
     async function checkUser(event: any) {
         event.preventDefault();
-        console.log(inputText)
         const userFromDB = await GetUser(inputText);
         if(userFromDB !== null) {
             user.setUsername(userFromDB.username)

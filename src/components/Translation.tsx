@@ -4,7 +4,7 @@ import Sign from './Sign';
 import { useHistory } from 'react-router';
 import { useUser, UserContextType } from '../context/UserContext';
 import { useLoggedIn, LoggedInContextType} from '../context/LoggedInContext';
-
+import { PatchTranslations } from '../api/userApi';
 
 function Translation() {
     const [signs, setSigns] = useState([""])
@@ -18,12 +18,13 @@ function Translation() {
         }
     }, [history, loggedIn])
 
-    const handleInputTextChange = (inputFromChild: string) => {
+    const handleInputTextChange = async (inputFromChild: string) => {
         const translation: string[] = setSignsFromString(inputFromChild)
         setSigns(translation);
         const userTranslationsArray = user.translations;
         userTranslationsArray.push(inputFromChild)
         user.setTranslations(userTranslationsArray)
+        await PatchTranslations(user.id, userTranslationsArray)
     }
 
     const setSignsFromString = (translation: string) => {
