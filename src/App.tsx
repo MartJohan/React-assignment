@@ -5,6 +5,7 @@ import {
   Route} from 'react-router-dom';
 import './App.css'
 import Login from './components/Login';
+import Navbar from './components/Navbar';
 import Profile from './components/Profile';
 import Translation from './components/Translation';
 
@@ -29,6 +30,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <Navbar />
         <Switch>
           <Route path="/" exact component={Login}/>
           <Route path="/login" component={Login}/>

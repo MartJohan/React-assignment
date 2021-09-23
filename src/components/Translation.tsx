@@ -1,7 +1,6 @@
 import {useState } from 'react';
 import TranslationInput from './TranslationInput';
 import Sign from './Sign';
-// import { useHistory } from 'react-router';
 import { useUser, UserContextType } from '../context/UserContext';
 
 
