@@ -38,10 +38,11 @@ function ProfileTranslation() {
 
     return (
         <>
+        <h3 className="lolxd">Your last translations</h3>
             <ol>
                 {translations.map((translations, i) => <li key={i}>{ translations }</li>)}
             </ol>
-            <button className="btn btn-primary" onClick={ ResetTranslations }>Reset translations</button>
+            <button className="btn btn-info" onClick={ ResetTranslations }>Reset translations</button>
         </>
     )
 }

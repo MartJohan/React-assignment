@@ -40,7 +40,6 @@
 
 body {
   background-image: linear-gradient(#5DC3FC, #4FFF8B);
-  /*background-image: linear-gradient(#FF00E5, #F2FF5B); */
   height: 100vh;
 }
 
@@ -49,7 +48,6 @@ body {
 }
 
 .lolxd {
-  font-size: 8cm;
   background: -webkit-linear-gradient(#850077, #41da05);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -73,4 +71,8 @@ body {
   color: #000000;
   border-color: #000000;
   box-shadow: 0 0 0 0.25rem #ff004059;
+}
+
+.nav-item:hover {
+  background-color: #F980A0;
 }

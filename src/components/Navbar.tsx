@@ -27,13 +27,13 @@ function Navbar() {
                             <div className="collapse navbar-collapse">
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
-                                        <span className="nav-link" onClick={ handleClickTranslation }>Translate</span>
+                                        <span className="nav-link rounded" onClick={ handleClickTranslation }>Translate</span>
                                     </li>
                                     <li className="nav-item">
-                                        <span className="nav-link" onClick={ handleClickProfile }>Profile</span>
+                                        <span className="nav-link rounded" onClick={ handleClickProfile }>Profile</span>
                                     </li>
                                         <li className="nav-item justify-self-end">
-                                            <span className="nav-link" onClick={ handleClickLogOut }>Log out</span>
+                                            <span className="nav-link rounded" onClick={ handleClickLogOut }>Log out</span>
                                         </li>
                                 </ul>
                             </div>
