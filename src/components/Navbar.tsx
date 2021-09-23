@@ -15,17 +15,10 @@ function Navbar() {
         history.push("/profile")
     }
 
-    /*
-    <div><button className="form-control btn btn-primary" onClick= { handleClickTranslation }>Translate</button></div>
-    <div><button className="form-control btn btn-primary" onClick= { handleClickProfile }>Profile</button></div>
-    <div><button className="form-control btn btn-danger">Log out</button></div>
-
-    <div className="col-1"><button className="btn btn-primary" onClick= { handleClickTranslation }>Translate</button></div>
-                        <div className="col-1"></div>
-                        <div className="col-1"><button className="btn btn-primary" onClick= { handleClickProfile }>Profile</button></div>
-                        <div className="col-7"></div>
-                        <div className="col-2"><button className="btn btn-danger">Log out</button></div>
-    */
+    const handleClickLogOut = () => {
+        loggedIn.setLoggedIn(false);
+        history.push("/");
+    }
 
     return(
             <div>
@@ -40,7 +33,7 @@ function Navbar() {
                                         <span className="nav-link" onClick={ handleClickProfile }>Profile</span>
                                     </li>
                                         <li className="nav-item justify-self-end">
-                                            <span className="nav-link">Log out</span>
+                                            <span className="nav-link" onClick={ handleClickLogOut }>Log out</span>
                                         </li>
                                 </ul>
                             </div>

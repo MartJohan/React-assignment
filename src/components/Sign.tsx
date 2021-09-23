@@ -14,7 +14,7 @@ function Sign(props: any) {
 
     return (
         <div>
-            {(props.letter === " " || props.letter === "." || props.letter === ",") 
+            {(props.letter === " " || props.letter === "." || props.letter === "," || props.letter === "") 
                 ? (<p className="emptySpace"></p>)
                 :  (<img src={signSource} alt="letter in hand sign" width="80rem" height="80rem"/>) 
             }
