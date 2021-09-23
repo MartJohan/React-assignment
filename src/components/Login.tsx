@@ -3,8 +3,7 @@ import Input from './LoginInput';
 function Login() {
     return (
         <div>
-            <p className="lolxd">Lolxd</p> 
-            <div>
+            <div className="lolxd">
                 <h1>Lost in Translation</h1>
                 <h3>Get Started</h3>
             </div>

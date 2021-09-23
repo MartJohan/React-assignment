@@ -38,7 +38,7 @@ function LoginInput() {
                         placeholder="What's your name?"
                         value={inputText} onChange={handleUsername}/>
                     <div className="input-group-append">
-                        <button className="btn btn-primary" type="submit" >Go</button>
+                        <button className="btn btn-info" type="submit" >Go</button>
                     </div>
                 </div>
             </form>

@@ -22,7 +22,7 @@ function TranslationInput(props: any) {
                     placeholder="Input text to translate"
                     value={inputText} onChange={handleInputText}/>
                 <div className="input-group-append">
-                    <button className="btn btn-primary" type="submit" >Translate</button>
+                    <button className="btn btn-info" type="submit" >Translate</button>
                 </div>
             </div>
         </form>

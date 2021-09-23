@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { GetUser, PatchTranslations } from "../api/userApi";
+import { useUser, UserContextType } from '../context/UserContext';
 import { LoggedInContextType, useLoggedIn } from "../context/LoggedInContext";
 
 function ProfileTranslation() {
-     const [translations, setTranslations] = useState([]);
-     const [user, setUser] = useState({
-        id : 0,
-        username : '',
-        translations : []
-    }); 
+    const [translations, setTranslations] = useState([]);
+    const user: UserContextType = useUser();
     const loggedIn: LoggedInContextType = useLoggedIn();
     const history = useHistory();
     
@@ -19,28 +16,25 @@ function ProfileTranslation() {
             history.push("/");
         }
         GetTranslations();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [history, loggedIn])
 
     async function GetTranslations() {
-        const result = await GetUser("Tester"); 
-        setTranslations(result.translations.slice(-10));
+        if(loggedIn.loggedIn) {
+            const result = await GetUser(user.username); 
+            setTranslations(result.translations.slice(-10));
+        }
+        else {
+            history.push("/");
+        }
     }
 
     async function ResetTranslations() {
-        const updatedUser = await PatchTranslations(5, []);
+        user.setTranslations([]);
         setTranslations([]);
-        setUser({
-            ...user,
-            id : updatedUser.id,
-            username : updatedUser.username,
-            translations : []
-        });
+        await PatchTranslations(user.id, []);
     }
 
-    async function LogOut() {
-        localStorage.setItem("LoggedIn", "0");  
-        history.push("/");
-    }
 
     return (
         <>
@@ -48,7 +42,6 @@ function ProfileTranslation() {
                 {translations.map((translations, i) => <li key={i}>{ translations }</li>)}
             </ol>
             <button className="btn btn-primary" onClick={ ResetTranslations }>Reset translations</button>
-            <button className="btn btn-danger" onClick={ LogOut }>Log out</button>
         </>
     )
 }
