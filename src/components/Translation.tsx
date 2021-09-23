@@ -1,24 +1,23 @@
-import {useState } from 'react';
+import {useState, useEffect } from 'react';
 import TranslationInput from './TranslationInput';
 import Sign from './Sign';
-// import { useHistory } from 'react-router';
+import { useHistory } from 'react-router';
 import { useUser, UserContextType } from '../context/UserContext';
+import { useLoggedIn, LoggedInContextType} from '../context/LoggedInContext';
 
 
 
 function Translation() {
-    // const history = useHistory();
-    // useEffect(() => {
-    //     let value = localStorage.getItem("LoggedIn");
-    //     if(value !== "1") {
-    //         history.push("/");
-    //     }
-    // },[])
-
-    // list of chars to be translated
     const [signs, setSigns] = useState([""])
     const user: UserContextType = useUser();
+    const loggedIn: LoggedInContextType = useLoggedIn();
+    const history = useHistory();
 
+    useEffect(() => {
+        if(!loggedIn.loggedIn) {
+            history.push("/");
+        }
+    }, [history, loggedIn])
 
     const handleInputTextChange = (inputFromChild: string) => {
         const translation: string[] = setSignsFromString(inputFromChild)
@@ -34,7 +33,6 @@ function Translation() {
 
     }
 
-    // need inputText from Input component
     return (
         <div className="container">
             <TranslationInput inputClick={handleInputTextChange}/>

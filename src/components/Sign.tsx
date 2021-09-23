@@ -14,9 +14,10 @@ function Sign(props: any) {
 
     return (
         <div>
-            {(props.letter !== " ") 
-            ? (<img src={signSource} alt="letter in hand sign" width="80rem" height="80rem"/>) 
-            : (<p className="emptySpace"></p>)}
+            {(props.letter === " " || props.letter === "." || props.letter === ",") 
+                ? (<p className="emptySpace"></p>)
+                :  (<img src={signSource} alt="letter in hand sign" width="80rem" height="80rem"/>) 
+            }
         </div>
     )
 }
