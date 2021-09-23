@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 
 const LoggedInContext = createContext<LoggedInContextType>({loggedIn: false, setLoggedIn: loggedIn => null});
 
-type LoggedInContextType = {
+export type LoggedInContextType = {
     loggedIn: boolean,
     setLoggedIn: (loggedIn: boolean) => void
 }

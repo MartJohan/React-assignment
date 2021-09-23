@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { GetUser, PostUser } from '../api/userApi';
 import { useUser, UserContextType } from '../context/UserContext';
+import { useLoggedIn, LoggedInContextType} from '../context/LoggedInContext';
 function LoginInput() {
     const user: UserContextType = useUser();
     const [inputText, setInputText] = useState("")
+    const loggedIn: LoggedInContextType = useLoggedIn();
     const history = useHistory();
     const handleUsername = (event: React.FormEvent<HTMLInputElement>) => {
         setInputText(event.currentTarget.value);
@@ -24,6 +26,7 @@ function LoginInput() {
             user.setId(newUser.id)
             user.setTranslations(newUser.translations)
         }
+        loggedIn.setLoggedIn(true);
         history.push("/translation");
     }
 
