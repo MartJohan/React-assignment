@@ -1,19 +1,19 @@
-import {useState,useEffect } from 'react';
+import {useState } from 'react';
 import TranslationInput from './TranslationInput';
 import Sign from './Sign';
-import { useHistory } from 'react-router';
+// import { useHistory } from 'react-router';
 import { useUser, UserContextType } from '../context/UserContext';
 
 
 
 function Translation() {
-    const history = useHistory();
-    useEffect(() => {
-        let value = localStorage.getItem("LoggedIn");
-        if(value !== "1") {
-            history.push("/");
-        }
-    },[])
+    // const history = useHistory();
+    // useEffect(() => {
+    //     let value = localStorage.getItem("LoggedIn");
+    //     if(value !== "1") {
+    //         history.push("/");
+    //     }
+    // },[])
 
     // list of chars to be translated
     const [signs, setSigns] = useState([""])
