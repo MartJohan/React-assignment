@@ -7,7 +7,6 @@ export async function GetUsers() {
         if(users.length >= 1) { return users[0]; }
         else { return null; }
     } catch(error) {
-        console.log(error);
         return null;
     }
 }
@@ -16,11 +15,9 @@ export async function GetUser(user : string) {
     try {
         const userfromDB = await fetch(`${url}?username=${user}`)
         .then(response => response.json());
-        console.log(userfromDB);
         if(userfromDB.length !== 0) { return userfromDB[0]; }
         else { return null; }
     } catch(error) {
-        console.log(error);
         return false;
     }
 }
@@ -45,15 +42,13 @@ export async function PostUser(username : string) {
             return response.json()
         })
         .then(newUser => {
-            console.log(`Should return ${newUser}`)
             return newUser
         })
-    }catch (error) {
-        console.log(error)
+    } catch (error) {
     }
 }
 
-export async function PatchTranslations(userId : number, translations : []) {
+export async function PatchTranslations(userId : number, translations : string[]) {
     try {
         return await fetch(`${url}/${userId}`, {
             method : 'PATCH',
@@ -72,11 +67,9 @@ export async function PatchTranslations(userId : number, translations : []) {
             return response.json()
         })
         .then(updatedUser => {
-            console.log(`Should return : ${updatedUser}`)
             return updatedUser;
         })
     } catch(error) {
-        console.log(error);
         return null;
     }
 }

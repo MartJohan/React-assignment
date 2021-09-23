@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { GetUser, PatchTranslations } from "../api/userApi";
+import { LoggedInContextType, useLoggedIn } from "../context/LoggedInContext";
 
 function ProfileTranslation() {
      const [translations, setTranslations] = useState([]);
@@ -9,11 +10,16 @@ function ProfileTranslation() {
         username : '',
         translations : []
     }); 
+    const loggedIn: LoggedInContextType = useLoggedIn();
     const history = useHistory();
+    
 
     useEffect(() => {
+        if(!loggedIn.loggedIn) {
+            history.push("/");
+        }
         GetTranslations();
-    }, [])
+    }, [history, loggedIn])
 
     async function GetTranslations() {
         const result = await GetUser("Tester"); 

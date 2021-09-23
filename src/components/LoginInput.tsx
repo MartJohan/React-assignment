@@ -14,7 +14,6 @@ function LoginInput() {
 
     async function checkUser(event: any) {
         event.preventDefault();
-        console.log(inputText)
         const userFromDB = await GetUser(inputText);
         if(userFromDB !== null) {
             user.setUsername(userFromDB.username)
@@ -39,7 +38,7 @@ function LoginInput() {
                         placeholder="What's your name?"
                         value={inputText} onChange={handleUsername}/>
                     <div className="input-group-append">
-                        <button className="btn btn-outline-secondary" type="submit" >Go</button>
+                        <button className="btn btn-primary" type="submit" >Go</button>
                     </div>
                 </div>
             </form>
