@@ -24,7 +24,7 @@ function Navbar() {
             <div>
             { (loggedIn.loggedIn) ?  (
                         <nav className="navbar navbar-expand-lg bg-light">
-                            <div className="collapse navbar-collapse">
+                            <div className="navbar-collapse">
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
                                         <span className="nav-link rounded" onClick={ handleClickTranslation }>Translate</span>
@@ -38,7 +38,22 @@ function Navbar() {
                                 </ul>
                             </div>
                         </nav>
-            ) : <div></div> } <br/>
+            ) : 
+            <nav className="navbar navbar-expand-lg bg-light">
+                <div className="navbar-collapse">
+                    <ul className="navbar-nav">
+                        <li className="nav-item invisible">
+                            <span className="nav-link rounded" >Translate</span>
+                        </li>
+                        <li className="nav-item invisible">
+                            <span className="nav-link rounded" >Profile</span>
+                        </li>
+                            <li className="nav-item justify-self-end invisible">
+                                <span className="nav-link rounded" >Log out</span>
+                            </li>
+                    </ul>
+                </div>
+            </nav> } <br/>
         </div>
     )
 }
