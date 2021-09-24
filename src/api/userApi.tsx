@@ -1,6 +1,7 @@
 const url = "https://vuejs-assignment-3.herokuapp.com/translations";
 const key = "RakrKsq94tlf3PZmAnuQ";
 
+//Gets all users from the database
 export async function GetUsers() {
     try {
         const users = await fetch(`${url}`).then(response => response.json())
@@ -11,6 +12,7 @@ export async function GetUsers() {
     }
 }
 
+//Gets a single user based on username from the database
 export async function GetUser(user : string) {
     try {
         const userfromDB = await fetch(`${url}?username=${user}`)
@@ -22,6 +24,7 @@ export async function GetUser(user : string) {
     }
 }
 
+//Adds a user to the database
 export async function PostUser(username : string) {
     try {
         return await fetch(`${url}`, {
@@ -48,6 +51,7 @@ export async function PostUser(username : string) {
     }
 }
 
+//Patches the translations array for the user, this method replaces the array, it does not automatically add new items
 export async function PatchTranslations(userId : number, translations : string[]) {
     try {
         return await fetch(`${url}/${userId}`, {

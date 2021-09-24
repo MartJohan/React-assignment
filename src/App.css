@@ -76,3 +76,13 @@ body {
 .nav-item:hover {
   background-color: #F980A0;
 }
+
+.translation-item {
+  background-color:white;
+  width: 300px;
+  border-radius: 15px;
+  overflow: auto;
+  min-height: 50px;
+  padding:10px;
+  border:solid black 1px;
+}

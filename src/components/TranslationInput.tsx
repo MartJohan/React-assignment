@@ -6,6 +6,7 @@ function TranslationInput(props: any) {
         setInputText(event.currentTarget.value);
     }
 
+    //Starter method for translating the text
     const handleTranslate = (event: any) => {
         event.preventDefault();
         props.inputClick(inputText);
