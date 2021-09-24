@@ -42,14 +42,25 @@ function ProfileTranslation() {
     return (
         <>
         <h3>Your last translations</h3> <br/>
-            <div className="row">
-                {translations.map((translations, i) => <div className="col-md-8 mx-auto" key={i}>
-                    <div className="translation-item mx-auto">
-                        { translations }
-                    </div> <br/>
-                </div>)}
+        {
+            (translations.length < 1) ? <div><p>Oops! Looks like you have previous translations. How about you go and do some?</p>
+                <img src="Logo.png" alt="hello logo" />
+            </div> :
+            (
+            <div>
+                <div className="row">
+                {translations.map((translations, i) =>
+                    <div className="col-md-8 mx-auto" key={i}>
+                        <div className="translation-item mx-auto">
+                            { translations }
+                        </div> <br/>
+                    </div>)}
+                </div>
+                <button className="btn btn-info" onClick={ ResetTranslations }>Reset translations</button>
             </div>
-            <button className="btn btn-info" onClick={ ResetTranslations }>Reset translations</button>
+            )
+        }
+            
         </>
     )
 }
