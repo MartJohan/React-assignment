@@ -8,7 +8,7 @@ function Login() {
                 
             </div>
             <div className="mb-4">
-                <img src="Logo-hello.png" width="300" alt="hello logo"/>
+                <img src="Logo-Hello.png" width="300" alt="hello logo"/>
             </div>
             <div className="mb-4" >
                 <h3>Let's get started</h3>
