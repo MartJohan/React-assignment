@@ -18,6 +18,7 @@ function Translation() {
         }
     }, [history, loggedIn])
 
+    //When the user wants to translate the text, update the database
     const handleInputTextChange = async (inputFromChild: string) => {
         const translation: string[] = setSignsFromString(inputFromChild)
         setSigns(translation);
@@ -27,6 +28,7 @@ function Translation() {
         await PatchTranslations(user.id, userTranslationsArray)
     }
 
+    //Helper method for turning a word into an array of chars
     const setSignsFromString = (translation: string) => {
         const translationArray: string[] = translation.split('');
         return translationArray;

@@ -12,6 +12,9 @@ function LoginInput() {
         setInputText(event.currentTarget.value);
     }
 
+    //Checks wheter or not the user is registered in the DB
+    //If the user exist we update the state and redirects to the translations page
+    //If the user is new we add him / her to the database and redirects
     async function checkUser(event: any) {
         event.preventDefault();
         const userFromDB = await GetUser(inputText);

@@ -14,11 +14,13 @@ function ProfileTranslation() {
     useEffect(() => {
         if(!loggedIn.loggedIn) {
             history.push("/");
+
         }
         GetTranslations();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [history, loggedIn])
 
+    //Gets the 10 most recent translations
     async function GetTranslations() {
         if(loggedIn.loggedIn) {
             const result = await GetUser(user.username); 
@@ -29,6 +31,7 @@ function ProfileTranslation() {
         }
     }
 
+    //Reset all current translations
     async function ResetTranslations() {
         user.setTranslations([]);
         setTranslations([]);
@@ -38,10 +41,14 @@ function ProfileTranslation() {
 
     return (
         <>
-        <h3 className="lolxd">Your last translations</h3>
-            <ol>
-                {translations.map((translations, i) => <li key={i}>{ translations }</li>)}
-            </ol>
+        <h3>Your last translations</h3> <br/>
+            <div className="row">
+                {translations.map((translations, i) => <div className="col-md-8 mx-auto" key={i}>
+                    <div className="translation-item mx-auto">
+                        { translations }
+                    </div> <br/>
+                </div>)}
+            </div>
             <button className="btn btn-info" onClick={ ResetTranslations }>Reset translations</button>
         </>
     )

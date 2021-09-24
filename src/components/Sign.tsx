@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 function Sign(props: any) {
     const [signSource, setSignSource] = useState("");
     
+    //Finds the correct image
     const setSourceFromLetter = (letter: string) => {
         const signImageSource = "/individual_signs/" + letter + ".png"
         return signImageSource;

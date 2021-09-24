@@ -73,3 +73,13 @@ body {
   background-color: #5DC3FC;
   cursor: pointer;
 }
+
+.translation-item {
+  background-color:white;
+  width: 300px;
+  border-radius: 15px;
+  overflow: auto;
+  min-height: 50px;
+  padding:10px;
+  border:solid black 1px;
+}
