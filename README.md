@@ -7,7 +7,7 @@ The Login API which acts as our database, storing user information and their tra
 - https://vuejs-assignment-3.herokuapp.com/translations.
 
 Link to app deployment:
-- URL to deployment.
+- https://warm-crag-08480.herokuapp.com/
 
 ## Project setup
 
