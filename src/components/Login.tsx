@@ -1,4 +1,4 @@
-import Input from './LoginInput';
+import LoginInput from './LoginInput';
 
 function Login() {
     return (
@@ -14,7 +14,7 @@ function Login() {
                 <h3>Let's get started</h3>
             </div>
             <div className="col-md-8 offset-md-2">
-                <Input/>
+                <LoginInput/>
             </div>
 
         </div>

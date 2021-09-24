@@ -41,7 +41,12 @@ function Translation() {
             <div className="mb-4">
                 <img src="Logo.png" width="300" alt="hello logo"/>
             </div>
-            <TranslationInput inputClick={handleInputTextChange}/>
+            <div className="row">
+                <div className="col-sm-3"></div>
+                <div className="col-sm-6"><TranslationInput inputClick={handleInputTextChange}/></div>
+                <div className="col-sm-3"></div>
+            </div>
+            
             <div className="translation rounded">
                 <ul className="row">
                     {signs.map((element, index) => {

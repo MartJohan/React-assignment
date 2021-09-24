@@ -40,13 +40,14 @@
 
 body {
   background-image: linear-gradient(#5DC3FC, #4FFF8B);
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .translation {
   /*background-image: linear-gradient(#FF00E5, #F2FF5B);*/
   background-color: #ffffff;
-  height: 30vh;
+  min-height: 30vh;
+  height: auto;
 }
 
 
@@ -57,15 +58,13 @@ body {
 }
 
 .btn-info, :focus.btn-info, :hover.btn-info {
-  color: #000000;
+  color: #ffffff;
   border-color: #000000;
-  background-image: linear-gradient(#ff0040, #F2FF5B);
 }
 
 
 :focus.btn-info {
-  background-image: linear-gradient(#ff0040, #F2FF5B);
-  color: #000000;
+  color: #ffffff;
   border-color: #000000;
   box-shadow: 0 0 0 0.25rem #ff004059;
 }
