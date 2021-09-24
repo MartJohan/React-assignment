@@ -37,6 +37,12 @@ function Translation() {
 
     return (
         <div className="container">
+            <div className="mb-4">
+                <h3>Welcome {user.username}!</h3>
+            </div>
+            <div className="mb-4">
+                <img src="Logo.png" width="300" alt="hello logo"/>
+            </div>
             <TranslationInput inputClick={handleInputTextChange}/>
             <div className="translation rounded">
                 <ul className="row">

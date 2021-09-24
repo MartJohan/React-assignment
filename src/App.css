@@ -44,14 +44,11 @@ body {
 }
 
 .translation {
-  background-image: linear-gradient(#FF00E5, #F2FF5B);
+  /*background-image: linear-gradient(#FF00E5, #F2FF5B);*/
+  background-color: #ffffff;
+  height: 30vh;
 }
 
-.lolxd {
-  background: -webkit-linear-gradient(#850077, #41da05);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
 
 .emptySpace {
@@ -74,7 +71,8 @@ body {
 }
 
 .nav-item:hover {
-  background-color: #F980A0;
+  background-color: #5DC3FC;
+  cursor: pointer;
 }
 
 .translation-item {
